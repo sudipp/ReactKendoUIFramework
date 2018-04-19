@@ -1,0 +1,208 @@
+﻿<form class="form-group" ng-controller="requestController">
+    <br />
+    <br />
+    <div class="row">
+        <div class=" col-md-12">
+            <label class="gridLabel grid-header-label-text ng-binding">Edit Request</label>
+        </div>
+    </div>
+    <div class="quoteClass">
+        <div class="quoterow">
+            <div class="quotecell quoteheader">Requested By:</div>
+            <div class="quotecell">
+                <label data-bind="text: RequestedBy"></label>
+            </div>
+            <div class="quotecell quoteheader">Department:</div>
+            <div class="quotecell">
+                <label data-bind="text: Department"></label>
+            </div>
+            <div class="quotecell quoteheader">Requested Date:</div>
+            <div class="quotecell">
+                <label data-format="MM-dd-yyyy" data-bind="text: RequestedDate"></label>
+            </div>
+            <!--<div class="quotecell quoteheader">Status:</div>
+            <div class="quotecell">
+                <label data-bind="text: StatusText"></label>
+            </div>-->
+        </div>
+        <div class="quoterow">
+            <div class="quotecell quoteheader">Approver Name:</div>
+            <div class="quotecell">
+                <label data-bind="text: Approver"></label>
+            </div>
+            <div class="quotecell quoteheader">Approved Date:</div>
+            <div class="quotecell">
+                <label data-format="MM-dd-yyyy" data-bind="text: ApprovedDate"></label>
+            </div>
+            <div class="quotecell quoteheader">SCR No:</div>
+            <div class="quotecell">
+                <label data-bind="text: SCRNo"></label>
+            </div>
+        </div>
+        <div class="quoterow">
+            <div class="quotecell quoteheader">Received By:</div>
+            <div class="quotecell">
+                <label data-bind="text: ReceivedBy"></label>
+            </div>
+            <div class="quotecell quoteheader">Received Date:</div>
+            <div class="quotecell">
+                <label data-format="MM-dd-yyyy" data-bind="text: ReceivedDate"></label>
+            </div>
+            <div class="quotecell"></div>
+            <div class="quotecell"></div>
+        </div>
+    </div>
+    <br/>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <label for="CommTitle">Communication Title:</label><br/>
+            <input id="CommTitle" type="text" ng-disabled="{{this.$parent.$parent.$parent.$parent.EditingProhibited}}" maxlength="100" validationmessage={{eQuoteMessageService.messages.error.E001}} class="form-control input-sm" name="Communication Title" data-bind="value:CommTitle">
+        </div>
+        <div class="col-md-2">
+            <label for="Status">Status:</label><br/>
+            <label data-bind="text: StatusText"></label>
+        </div>
+        <div class="col-md-4">
+            <label for="CommunicationPostDate">Service Communication Post Date:</label><br/>
+            <input ng-disabled="{{this.$parent.$parent.$parent.$parent.EditingProhibited}}" id="CommunicationPostDateSDtPicker" class="form-control" placeholder="" data-bind="value:CommunicationPostDate" kendo-date-picker>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Communication Type:</label>
+        </div>
+        <div class="col-md-4">
+            <label>Dealer:</label>
+            <input type="checkbox" ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" name="DealerCommType" data-bind="checked: DealerCommType">
+            &nbsp;
+            <label>Customer:</label>
+            <input type="checkbox" ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" name="CustomerCommType" data-bind="checked: CustomerCommType">
+        </div>
+        <div class="col-md-2">
+            <label>Secrecy Type:</label>
+        </div>
+        <div class="col-md-4">
+            <label>S:</label><input type="radio" ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" value="S" name="SecrecyType" data-bind="checked: SecrecyType">&nbsp;
+            <label>A:</label><input type="radio" ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" value="A" name="SecrecyType" data-bind="checked: SecrecyType">&nbsp;
+            <label>B:</label><input type="radio" ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" value="B" name="SecrecyType" data-bind="checked: SecrecyType">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label>Applicable Vehicle:</label>
+        </div>
+    </div>
+    <div class="row" ng-hide="{{this.$parent.$parent.$parent.$parent.EditingProhibited }}">
+        <div class="col-md-2">
+            <label>Make:</label><br/>
+            <select scrm-master-list
+                    kendo-drop-down-list="eqMasterList"
+                    id="MakeDDL"
+                    k-options="MakeDDL" name="MakeDDL"
+                    data-required-msg="Make is required."></select>
+        </div>
+        <div class="col-md-2">
+            <label>Year:</label><br/>
+            <select scrm-master-list
+                    kendo-drop-down-list="eqMasterList"
+                    id="YearDDL"
+                    k-options="YearDDL" name="YearDDL"
+                    data-required-msg="Year is required."></select>
+        </div>
+        <div class="col-md-2">
+            <label>Model:</label><br/>
+            <select scrm-master-list
+                    kendo-drop-down-list="eqMasterList"
+                    id="ModelDDL"
+                    k-options="ModelDDL" name="ModelDDL"
+                    data-required-msg="Model is required."></select>
+        </div>
+        <div class="col-md-2">
+            <label>Trim:</label><br/>
+            <select scrm-master-list
+                    kendo-drop-down-list="eqMasterList"
+                    id="TrimDDL"
+                    k-options="TrimDDL" name="TrimDDL"
+                    data-required-msg="Trim is required."></select>
+            <!--<button class="k-button" id="btnAddMYMT" title="AddMYMT" ng-click="addNewMYMT(this)" ng-disabled="SelectedMYMTSK<1">Add</button>-->
+        </div>
+        <div class="col-md-1">
+            <label>Sub Model:</label><br/>
+            <input id="txtSubModel" type="text" ng-disabled="{{this.$parent.$parent.$parent.$parent.EditingProhibited}}" maxlength="30" class="form-control input-sm" name="Sub Model" >
+        </div>
+        <div class="col-md-3">
+            &nbsp;<br />
+            <button class="k-button" id="btnAddMYMT" title="AddMYMT" ng-click="addNewMYMT(this)" ng-disabled="SelectedMYMTSK<1">Add</button>
+        </div>
+    </div>
+    <br ng-hide="{{this.$parent.$parent.$parent.$parent.EditingProhibited }}"/>
+<div class="row">
+    <div class="col-md-9">
+        <table>
+            <thead class="k-grid-header">
+            <tr>
+                <th ng-hide="{{ this.$parent.$parent.$parent.$parent.EditingProhibited }}"></th>
+                <th class="quoteheader">Make</th>
+                <th class="quoteheader">Year</th>
+                <th class="quoteheader">Model</th>
+                <th class="quoteheader">Trim</th>
+                <th class="quoteheader">SubModel</th>
+            </tr>
+            </thead>
+            <tbody data-template="row-template-mymt" data-bind="source: MYMTs"></tbody>
+        </table>
+    </div>
+</div>
+
+<script id="row-template-mymt" type="text/x-kendo-template">
+        <tr>
+            # if (!EditingProhibited) { #
+                <td style="width:50px">
+                    <img class="deleteMymt" data-bind="click: deleteMYMT" />
+                </td>
+            # } #
+            <td data-bind="text: Make"></td>
+            <td data-bind="text: Year"></td>
+            <td data-bind="text: Model"></td>
+            <td data-bind="text: Trim"></td>
+            <td data-bind="text: SubModel"></td>
+        </tr>
+    </script>
+    <br/>
+    <br/>
+    <div class="row" style="overflow-x: hidden;">
+        <div class="col-md-6">
+            <label>Communication Theme:</label>
+        </div>
+        <div class="col-md-6">
+            <label>Request Reason:</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <textarea ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" maxlength="1024" validationmessage={{eQuoteMessageService.messages.error.E001}} class="form-control input-sm" name="Communication Theme" data-bind="value:CommTheme" />
+        </div>
+        <div class="col-md-6">
+            <textarea ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" maxlength="1024" validationmessage={{eQuoteMessageService.messages.error.E001}} class="form-control input-sm" name="Request Reason" data-bind="value:RqstReason" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Additional Information:</label>
+        </div>
+        <div class="col-md-6">
+            <label>Attachments</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <textarea ng-disabled="this.$parent.$parent.$parent.$parent.EditingProhibited" maxlength="1024" validationmessage={{eQuoteMessageService.messages.error.E001}} class="form-control input-sm" name="Additional Information" data-bind="value:AddlInfo" />
+        </div>
+        <div class="col-md-6">
+            <comment-attachment name="requestCmntAttch" control-type="12" ng-disable="this.$parent.$parent.$parent.$parent.EditingProhibited"></comment-attachment>
+        </div>
+    </div>
+
+</form>

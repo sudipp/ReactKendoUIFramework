@@ -1,0 +1,30 @@
+﻿<form class="form-group" ng-controller="requestController">
+    <br />
+    <br />
+    <div class="row">
+        <div class=" col-md-12">
+            <label class="gridLabel grid-header-label-text ng-binding">Edit Request</label>
+        </div>
+    </div>
+    <div class="quoteClass">
+        <div class="quoterow">
+            <div class="quotecell quoteheader">Requested By:</div>
+            <div class="quotecell">
+                <label data-bind="text: RequestedBy"></label>
+            </div>
+            <div class="quotecell quoteheader">Department:</div>
+            <div class="quotecell">
+                <label data-bind="text: Department"></label>
+            </div>
+            <div class="quotecell quoteheader">Requested Date:</div>
+            <div class="quotecell">
+                <label data-format="MM-dd-yyyy" data-bind="text: RequestedDate"></label>
+            </div>
+            <!--<div class="quotecell quoteheader">Status:</div>
+            <div class="quotecell">
+                <label data-bind="text: StatusText"></label>
+            </div>-->
+        </div>        
+    </div>    
+
+</form>

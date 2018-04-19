@@ -1,0 +1,32 @@
+{
+    "ServiceBaseUrl" : "http://localhost:61003",
+    "F5ServiceBaseUrl" : "http://localhost:61003",
+    "uibaseUri" : "http://localhost:4000",
+    "xlstUri" : "http://localhost:4000/build/",
+    "SystemBusinessId" : "SEI SCRM System",
+    "SiteId" : "SEI SCRM",
+    "LoggedInUserId" : "Sudip Purkayastha",
+    "LoggedInUserRole" : "Admin",
+    
+    "LoadRoleFromConfig" : true,
+    "LoggedInUserRole" : "http://localhost:61003",
+    "GridPageSize" :  20,
+    
+    "app_errordisplay_panelId": "sys-message",
+    "current_app_errordisplay_panelId": "sys-message",
+    "app_fullerrordisplay_panelId": "sys-message-expanded",
+    "current_app_fullerrordisplay_panelId": "sys-message-expanded",    
+    "usrInfoCss": "usrInfo",
+    "showChar": 100,
+    
+    "ellipsestext": "...",
+    "moretext": "(View More)",
+    "moretextMultiple": "(View all {0} messages)",
+    "lesstext": "Show less",
+    "dateFormat": "{0:yyyy-MM-dd}",
+    "currencyFormat": "{0:0.0000}",
+    "storeLdUsrGrdPreference": false,
+    
+    
+    "PartsServiceBaseUrl" : "http://localhost:1337"
+}
